@@ -1,10 +1,15 @@
 # Java project
 Simple project in Java with Selenium and TestNG
 
-### To run
+### Before run
 - Make sure your `Chrome` is installed on version `126.0.6478.182` or newer
 - Make sure your `Apache Maven` is installed on version `3.9.8` or newer
 - Make sure your `Java` is installed on version `8` or newer
+
+### To run
+1. Go to project folder `../javaProject`
+2. Open `command window` of the project folder
+3. Type `mvn test` and <kbd>Enter</kbd>
 
 ### Sources
 - https://googlechromelabs.github.io/chrome-for-testing/#stable

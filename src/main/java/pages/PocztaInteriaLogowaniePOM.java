@@ -5,30 +5,30 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tests.Base;
 
-public class PocztaWpLoginPOM {
+public class PocztaInteriaLogowaniePOM {
 
     private Base base;
 
-    public PocztaWpLoginPOM(Base base) {
+    public PocztaInteriaLogowaniePOM(Base base) {
         this.base = base;
-        base.wait.urlContains("poczta.wp.pl/login/login.html");
+        base.wait.urlContains("poczta.interia.pl/logowanie/");
         PageFactory.initElements(base.driver, this);
     }
 
-    @FindBy(xpath = "//h3[text()='Cenimy Twoją prywatność']//parent::div")
+    @FindBy(className = "rodo-popup")
     public WebElement privacyNoticeDiv;
 
-    @FindBy(xpath = "//button[text()='AKCEPTUJĘ I PRZECHODZĘ DO SERWISU']")
+    @FindBy(className = "rodo-popup-main-agree")
     public WebElement acceptButton;
 
-    @FindBy(id = "login")
-    public WebElement loginInput;
+    @FindBy(xpath = "//span[@class='form__error']")
+    public WebElement errorSpan;
+
+    @FindBy(id = "email")
+    public WebElement emailInput;
 
     @FindBy(id = "password")
     public WebElement passwordInput;
-
-    @FindBy(xpath = "//div[@type='error']")
-    public WebElement errorDiv;
 
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement submitButton;

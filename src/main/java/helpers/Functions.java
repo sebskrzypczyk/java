@@ -24,8 +24,8 @@ public class Functions {
     public void click(WebElement webElement) {
         base.wait.visibilityOf(webElement);
         base.wait.elementToBeClickable(webElement);
-        webElement.click();
         System.out.println("Element clicked: " + webElement.getText());
+        webElement.click();
     }
 
     public void sendKeys(WebElement webElement, String string) {

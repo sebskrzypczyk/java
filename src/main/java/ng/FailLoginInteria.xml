@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Fail login to WP">
-    <test name="Fail login to WP">
-        <parameter name="username" value="username"/>
+<suite name="Fail login to Interia">
+    <test name="Fail login to Interia">
+        <parameter name="username" value="username@interia.pl"/>
         <parameter name="password" value="password"/>
         <classes>
-            <class name="tests.FailLoginWpTest"/>
+            <class name="tests.FailLoginInteriaTest"/>
         </classes>
     </test>
 </suite>
