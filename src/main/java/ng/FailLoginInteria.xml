@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Fail login to Interia">
     <test name="Fail login to Interia">
-        <parameter name="username" value="username@interia.pl"/>
+        <parameter name="email" value="email@interia.pl"/>
         <parameter name="password" value="password"/>
         <classes>
             <class name="tests.FailLoginInteriaTest"/>

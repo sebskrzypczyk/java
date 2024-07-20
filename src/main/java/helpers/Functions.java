@@ -34,6 +34,6 @@ public class Functions {
         webElement.clear();
         webElement.sendKeys(string);
         Assert.assertEquals(webElement.getAttribute("value"), string, "The send value is different!");
-        System.out.println("To the element: " + webElement.getText() + "\nhas been sent: " + string);
+        System.out.println("To the element: " + webElement.getAttribute("name") + "\nhas been sent: " + string);
     }
 }
