@@ -1,6 +1,7 @@
 package tests;
 
 import helpers.Functions;
+import helpers.Wait;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -12,6 +13,7 @@ public class Base {
 
     public WebDriver driver;
     public Functions functions;
+    public Wait wait;
 
     @BeforeTest
     public void beforeTest() {
@@ -23,6 +25,7 @@ public class Base {
         driver.manage().window().maximize();
 
         functions = new Functions(this);
+        wait = new Wait(this);
     }
 
     @AfterTest
