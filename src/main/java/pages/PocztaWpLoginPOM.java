@@ -15,7 +15,7 @@ public class PocztaWpLoginPOM {
         PageFactory.initElements(base.driver, this);
     }
 
-    @FindBy(xpath = "//h3[text()='Cenimy Twoją prywatność']/parent::div")
+    @FindBy(xpath = "//h3[text()='Cenimy Twoją prywatność']//parent::div")
     public WebElement privacyNoticeDiv;
 
     @FindBy(xpath = "//button[text()='AKCEPTUJĘ I PRZECHODZĘ DO SERWISU']")
