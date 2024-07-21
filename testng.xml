@@ -4,5 +4,6 @@
     <suite-files>
         <suite-file path="src/main/java/ng/FailLoginWp.xml"/>
         <suite-file path="src/main/java/ng/FailLoginInteria.xml"/>
+        <suite-file path="src/main/java/ng/LoginInteria.xml"/>
     </suite-files>
 </suite>
