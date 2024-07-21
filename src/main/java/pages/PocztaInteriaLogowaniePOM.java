@@ -7,21 +7,12 @@ import tests.Base;
 
 public class PocztaInteriaLogowaniePOM {
 
-    private Base base;
-
     public PocztaInteriaLogowaniePOM(Base base) {
-        this.base = base;
         base.wait.urlContains("poczta.interia.pl/logowanie/");
         PageFactory.initElements(base.driver, this);
     }
 
-    @FindBy(className = "rodo-popup")
-    public WebElement privacyNoticeDiv;
-
-    @FindBy(className = "rodo-popup-main-agree")
-    public WebElement acceptButton;
-
-    @FindBy(xpath = "//span[@class='form__error']")
+    @FindBy(className = "form__error")
     public WebElement errorSpan;
 
     @FindBy(id = "email")
@@ -30,6 +21,6 @@ public class PocztaInteriaLogowaniePOM {
     @FindBy(id = "password")
     public WebElement passwordInput;
 
-    @FindBy(xpath = "//button[@type='submit']")
-    public WebElement submitButton;
+    @FindBy(className = "btn--login")
+    public WebElement loginButton;
 }
