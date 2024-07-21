@@ -9,7 +9,7 @@ public class FailLoginInteriaTest extends Base {
 
     @Test
     @Parameters({"email", "password"})
-    public void failLoginWpTest(String email, String password) {
+    public void failLoginInteriaTest(String email, String password) {
         functions.goToPage("https://poczta.interia.pl/logowanie/");
         PocztaInteriaLogowaniePOM pocztaInteriaLogowaniePOM = new PocztaInteriaLogowaniePOM(this);
         wait.visibilityOf(pocztaInteriaLogowaniePOM.privacyNoticeDiv);

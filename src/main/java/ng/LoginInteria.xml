@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Login to Interia">
+    <test name="Login to Interia">
+        <parameter name="email" value="test.javaproject@interia.pl"/>
+        <parameter name="password" value="T>nMIbs#1CL@"/>
+        <classes>
+            <class name="tests.LoginInteriaTest"/>
+        </classes>
+    </test>
+</suite>

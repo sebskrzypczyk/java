@@ -7,10 +7,7 @@ import tests.Base;
 
 public class PocztaWpLoginPOM {
 
-    private Base base;
-
     public PocztaWpLoginPOM(Base base) {
-        this.base = base;
         base.wait.urlContains("poczta.wp.pl/login/login.html");
         PageFactory.initElements(base.driver, this);
     }

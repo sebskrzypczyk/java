@@ -1,10 +1,15 @@
 package helpers;
 
+import model.enums.Alert;
+import model.enums.DataFormat;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import tests.Base;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Functions {
 
@@ -12,6 +17,14 @@ public class Functions {
 
     public Functions(Base base) {
         this.base = base;
+    }
+
+    public static String getDateNow(DataFormat dataFormat) {
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(dataFormat.getText()));
+    }
+
+    public static String getDateNow() {
+        return getDateNow(DataFormat.YEAR_MONTH_DAY_HOUR_MINUTES);
     }
 
     public void goToPage(String url) {
@@ -35,5 +48,15 @@ public class Functions {
         webElement.sendKeys(string);
         Assert.assertEquals(webElement.getAttribute("value"), string, "The send value is different!");
         System.out.println("To the element: " + webElement.getAttribute("name") + "\nhas been sent: " + string);
+    }
+
+    public void isDisplayed(WebElement webElement) {
+        base.wait.visibilityOf(webElement);
+        Assert.assertTrue(webElement.isDisplayed(), "Element is not displayed: " + webElement.getText());
+    }
+
+    public void checkAlert(WebElement webElement, Alert alert) {
+        base.wait.visibilityOf(webElement);
+        Assert.assertEquals(webElement.getText(), alert.getText(), "Alert is different!");
     }
 }

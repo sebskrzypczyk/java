@@ -7,10 +7,7 @@ import tests.Base;
 
 public class PocztaInteriaLogowaniePOM {
 
-    private Base base;
-
     public PocztaInteriaLogowaniePOM(Base base) {
-        this.base = base;
         base.wait.urlContains("poczta.interia.pl/logowanie/");
         PageFactory.initElements(base.driver, this);
     }
