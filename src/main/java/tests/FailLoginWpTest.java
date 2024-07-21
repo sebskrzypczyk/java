@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.PocztaWpLoginPOM;
+import pages.popUp.WpPrivacyNoticePOM;
 
 public class FailLoginWpTest extends Base {
 
@@ -11,9 +12,10 @@ public class FailLoginWpTest extends Base {
     @Parameters({"username", "password"})
     public void failLoginWpTest(String username, String password) {
         functions.goToPage("https://poczta.wp.pl/login/login.html");
+        WpPrivacyNoticePOM wpPrivacyNoticePOM = new WpPrivacyNoticePOM(this);
+        wait.visibilityOf(wpPrivacyNoticePOM.privacyNoticeDiv);
+        functions.click(wpPrivacyNoticePOM.acceptButton);
         PocztaWpLoginPOM pocztaWpLoginPOM = new PocztaWpLoginPOM(this);
-        wait.visibilityOf(pocztaWpLoginPOM.privacyNoticeDiv);
-        functions.click(pocztaWpLoginPOM.acceptButton);
         functions.sendKeys(pocztaWpLoginPOM.loginInput, username);
         functions.sendKeys(pocztaWpLoginPOM.passwordInput, password);
         functions.click(pocztaWpLoginPOM.submitButton);

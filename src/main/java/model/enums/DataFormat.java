@@ -6,7 +6,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum DataFormat {
-    YEAR_MONTH_DAY_HOUR_MINUTES("yyyy-MM-dd HH:mm");
+    YEAR_MONTH_DAY_HOUR_MINUTES("yyyy-MM-dd HH:mm:SSSSSS");
 
     String text;
 }

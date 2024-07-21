@@ -8,6 +8,7 @@ import tests.Base;
 public class TemplatePOM {
 
     public TemplatePOM(Base base) {
+        base.wait.urlContains("poczta.interia.pl/next/");
         PageFactory.initElements(base.driver, this);
     }
 
@@ -19,6 +20,9 @@ public class TemplatePOM {
 
     @FindBy(id = "subject")
     public WebElement subjectImput;
+
+    @FindBy(xpath = "//iframe[@title='Treść wiadomości']")
+    public WebElement iframe;
 
     @FindBy(id = "tinymce")
     public WebElement messageBody;

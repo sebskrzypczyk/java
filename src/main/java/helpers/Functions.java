@@ -1,7 +1,8 @@
 package helpers;
 
-import model.enums.Alert;
+import model.enums.NotificationMessage;
 import model.enums.DataFormat;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,6 +11,7 @@ import tests.Base;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Functions {
 
@@ -34,6 +36,10 @@ public class Functions {
         System.out.println("Page opened: " + url);
     }
 
+    public WebElement findElement(String xpath) {
+        return base.driver.findElement(By.xpath(xpath));
+    }
+
     public void click(WebElement webElement) {
         base.wait.visibilityOf(webElement);
         base.wait.elementToBeClickable(webElement);
@@ -46,8 +52,14 @@ public class Functions {
         base.wait.elementToBeClickable(webElement);
         webElement.clear();
         webElement.sendKeys(string);
-        Assert.assertEquals(webElement.getAttribute("value"), string, "The send value is different!");
+        Assert.assertTrue(webElement.getText().equals(string) || webElement.getAttribute("value").equals(string), "The send value is different!");
         System.out.println("To the element: " + webElement.getAttribute("name") + "\nhas been sent: " + string);
+    }
+
+    public void sendKeys(WebElement inframe, WebElement webElement, String string) {
+        base.driver.switchTo().frame(inframe);
+        sendKeys(webElement, string);
+        base.driver.switchTo().defaultContent();
     }
 
     public void isDisplayed(WebElement webElement) {
@@ -55,8 +67,9 @@ public class Functions {
         Assert.assertTrue(webElement.isDisplayed(), "Element is not displayed: " + webElement.getText());
     }
 
-    public void checkAlert(WebElement webElement, Alert alert) {
-        base.wait.visibilityOf(webElement);
-        Assert.assertEquals(webElement.getText(), alert.getText(), "Alert is different!");
+    public void checkNotificationMessage(List<WebElement> webElementList, NotificationMessage notificationMessage) {
+        Wait.sleepSeconds(1);
+        base.wait.visibilityOf(webElementList);
+        Assert.assertTrue(webElementList.stream().map(WebElement::getText).anyMatch(text -> text.equals(notificationMessage.getText())), "Notification message is different!");
     }
 }

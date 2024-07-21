@@ -18,6 +18,23 @@ public class PocztaInteriaNextPOM {
     @FindBy(className = "section--message-list")
     public WebElement messageaListSection;
 
-    @FindBy(xpath = "//div[@role='alert']")
-    public WebElement alertDiv;
+    public static String messageSubjectXpath = "//span[@class='msglist-item__message__subject-text' and text()='%s']//ancestor::div[@role='button']";
+
+    @FindBy(className = "section--message")
+    public WebElement messageaSection;
+
+    @FindBy(xpath = "//h1[@class='message-header__subject']/span")
+    public WebElement subjectH1;
+
+    @FindBy(className = "icon-trash")
+    public WebElement trashIcon;
+
+    @FindBy(className = "message-iframe")
+    public WebElement messageIframe;
+
+    @FindBy(xpath = "//p")
+    public WebElement messageBody;
+
+    @FindBy(className = "avatar--large")
+    public WebElement avatarContentDiv;
 }
